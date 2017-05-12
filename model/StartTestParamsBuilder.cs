@@ -2,6 +2,8 @@
  * Copyright (c) 2016, Neotys
  * All rights reserved.
  */
+using System;
+
 namespace Neotys.RuntimeAPI.Model
 {
     /// <summary>
@@ -16,6 +18,8 @@ namespace Neotys.RuntimeAPI.Model
         public string TestResultName { get; set; }
         public string Description { get; set; }
         public bool Debug { get; set; }
+        public bool NLWeb { get; set; }
+        public string NLWebToken { get; set; }
 
         /// 
         /// <param name="scenarioName"> </param>
@@ -25,6 +29,44 @@ namespace Neotys.RuntimeAPI.Model
             this.TestResultName = "";
             this.Description = "";
             this.Debug = false;
+            this.NLWeb = false;
+            this.NLWebToken = "";
+        }
+
+        public StartTestParamsBuilder scenarioName(string scenarioName)
+        {
+            this.ScenarioName = scenarioName;
+            return this;
+        }
+
+        public StartTestParamsBuilder testResultName(string testResultName)
+        {
+            this.TestResultName = testResultName;
+            return this;
+        }
+
+        public StartTestParamsBuilder description(string description)
+        {
+            this.Description = description;
+            return this;
+        }
+
+        public StartTestParamsBuilder debug(bool debug)
+        {
+            this.Debug = debug;
+            return this;
+        }
+
+        public StartTestParamsBuilder nlWeb(bool nlWeb)
+        {
+            this.NLWeb = nlWeb;
+            return this;
+        }
+
+        public StartTestParamsBuilder nlWebToken(string nlWebToken)
+        {
+            this.NLWebToken = nlWebToken;
+            return this;
         }
 
         public StartTestParams Build()

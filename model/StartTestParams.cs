@@ -19,6 +19,8 @@ namespace Neotys.RuntimeAPI.Model
         private readonly string testResultName;
         private readonly string description;
         private readonly bool debug;
+        private readonly bool nlWeb;
+        private readonly string nlWebToken;
 
         internal StartTestParams(StartTestParamsBuilder startTestBuilder)
         {
@@ -26,6 +28,8 @@ namespace Neotys.RuntimeAPI.Model
             this.testResultName = startTestBuilder.TestResultName;
             this.description = startTestBuilder.Description;
             this.debug = startTestBuilder.Debug;
+            this.nlWeb = startTestBuilder.NLWeb;
+            this.nlWebToken = startTestBuilder.NLWebToken;
         }
 
         public virtual string ScenarioName
@@ -60,6 +64,22 @@ namespace Neotys.RuntimeAPI.Model
             }
         }
 
+        public virtual bool NLWeb
+        {
+            get
+            {
+                return nlWeb;
+            }
+        }
+
+        public virtual string NLWebToken
+        {
+            get
+            {
+                return nlWebToken;
+            }
+        }
+
         public override string ToString()
         {
             return new ToStringBuilder<StartTestParams>(this).ReflectionToString(this);
@@ -77,6 +97,8 @@ namespace Neotys.RuntimeAPI.Model
                 .With(m => m.testResultName)
                 .With(m => m.description)
                 .With(m => m.debug)
+                .With(m => m.nlWeb)
+                .With(m => m.nlWebToken)
                 .HashCode;
         }
 
@@ -92,6 +114,8 @@ namespace Neotys.RuntimeAPI.Model
                 .With(m => m.testResultName)
                 .With(m => m.description)
                 .With(m => m.debug)
+                .With(m => m.nlWeb)
+                .With(m => m.nlWebToken)
                 .Equals();
         }
     }

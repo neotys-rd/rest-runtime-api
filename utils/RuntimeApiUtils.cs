@@ -15,6 +15,8 @@ namespace Neotys.RuntimeAPI.Utils
         public const string TEST_RESULT_NAME = "TestResultName";
         public const string DESCRIPTION = "Description";
         public const string DEBUG = "Debug";
+        public const string NLWEB = "NLWeb";
+        public const string NLWEBTOKEN = "NLWebToken";
 
         // StoptTest
         public const string STOP_TEST = "StopTest";
@@ -42,6 +44,8 @@ namespace Neotys.RuntimeAPI.Utils
             properties[TEST_RESULT_NAME]= startTestParams.TestResultName;
             properties[DESCRIPTION]= startTestParams.Description;
             properties[DEBUG]= startTestParams.Debug;
+            properties[NLWEB] = startTestParams.NLWeb;
+            properties[NLWEBTOKEN] = startTestParams.NLWebToken;
             return properties;
         }
 
