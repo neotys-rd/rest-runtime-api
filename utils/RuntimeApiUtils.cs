@@ -1,6 +1,8 @@
 ﻿using Neotys.CommonAPI.Error;
 using Neotys.RuntimeAPI.Model;
 using System.Collections.Generic;
+using System;
+using Newtonsoft.Json.Linq;
 
 namespace Neotys.RuntimeAPI.Utils
 {
@@ -17,6 +19,7 @@ namespace Neotys.RuntimeAPI.Utils
         public const string DEBUG = "Debug";
         public const string NLWEB = "NLWeb";
         public const string NLWEBTOKEN = "NLWebToken";
+        public const string VARIABLES = "Variables";
 
         // StoptTest
         public const string STOP_TEST = "StopTest";
@@ -46,7 +49,21 @@ namespace Neotys.RuntimeAPI.Utils
             properties[DEBUG]= startTestParams.Debug;
             properties[NLWEB] = startTestParams.NLWeb;
             properties[NLWEBTOKEN] = startTestParams.NLWebToken;
+            if(startTestParams.ExecutionContext != null)
+            {
+                addExecutionContextProperties(properties, startTestParams.ExecutionContext);
+            }
             return properties;
+        }
+
+        private static void addExecutionContextProperties(IDictionary<string, object> properties, ExecutionContext executionContext)
+        {
+            JObject variablesJson = new JObject();
+            foreach (KeyValuePair<String, String> entry in executionContext.Variables)
+            {
+                variablesJson[entry.Key] =entry.Value;
+            }
+            properties[VARIABLES] = variablesJson.ToString();
         }
 
         public static IDictionary<string, object> getStopTestProperties(StopTestParams stopTestParams)

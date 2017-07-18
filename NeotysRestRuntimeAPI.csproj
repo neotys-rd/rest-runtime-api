@@ -43,6 +43,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="client\RuntimeAPIClient.cs" />
+    <Compile Include="model\ExecutionContext.cs" />
+    <Compile Include="model\ExecutionContextBuilder.cs" />
     <Compile Include="model\StopVirtualUsersParamsBuilder.cs" />
     <Compile Include="model\StopPolicy.cs" />
     <Compile Include="model\StopVirtualUsersParams.cs" />
@@ -99,6 +101,10 @@
     </Reference>
     <Reference Include="NeotysRestCommonAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\NeotysRestCommonAPI.1.0.0\lib\net40\NeotysRestCommonAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Simple.OData.Client.Net40, Version=4.16.0.0, Culture=neutral, processorArchitecture=MSIL">

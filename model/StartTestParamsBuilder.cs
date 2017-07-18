@@ -20,6 +20,7 @@ namespace Neotys.RuntimeAPI.Model
         public bool Debug { get; set; }
         public bool NLWeb { get; set; }
         public string NLWebToken { get; set; }
+        public ExecutionContext ExecutionContext { get; set; }
 
         /// 
         /// <param name="scenarioName"> </param>
@@ -31,6 +32,7 @@ namespace Neotys.RuntimeAPI.Model
             this.Debug = false;
             this.NLWeb = false;
             this.NLWebToken = "";
+            this.ExecutionContext = null;
         }
 
         public StartTestParamsBuilder scenarioName(string scenarioName)
@@ -66,6 +68,12 @@ namespace Neotys.RuntimeAPI.Model
         public StartTestParamsBuilder nlWebToken(string nlWebToken)
         {
             this.NLWebToken = nlWebToken;
+            return this;
+        }
+
+        public StartTestParamsBuilder executionContext(ExecutionContext executionContext)
+        {
+            this.ExecutionContext = executionContext;
             return this;
         }
 
