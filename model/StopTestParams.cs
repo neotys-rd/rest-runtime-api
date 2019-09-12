@@ -1,4 +1,5 @@
 ﻿using Neotys.CommonAPI.Utils;
+using NeotysRestCommonAPI.Data;
 using System;
 /*
  * Copyright (c) 2016, Neotys
@@ -16,10 +17,12 @@ namespace Neotys.RuntimeAPI.Model
     public class StopTestParams : IComparable<StopTestParams>
     {
         private readonly bool forceStop;
+        private readonly QualityStatus? qualityStatus;
 
         internal StopTestParams(StopTestParamsBuilder stopTestBuilder)
         {
             this.forceStop = stopTestBuilder.ForceStop;
+            this.qualityStatus = stopTestBuilder.QualityStatus;
         }
 
         public virtual bool ForceStop
@@ -27,6 +30,14 @@ namespace Neotys.RuntimeAPI.Model
             get
             {
                 return forceStop;
+            }
+        }
+
+        public virtual QualityStatus? QualityStatus
+        {
+            get
+            {
+                return qualityStatus;
             }
         }
 
@@ -44,6 +55,7 @@ namespace Neotys.RuntimeAPI.Model
         {
             return new HashCodeBuilder<StopTestParams>(this)
                 .With(m => m.forceStop)
+                .With(m => m.qualityStatus)
                 .HashCode;
         }
 
@@ -56,6 +68,7 @@ namespace Neotys.RuntimeAPI.Model
 
             return new EqualsBuilder<StopTestParams>(this, obj)
                 .With(m => m.forceStop)
+                .With(m => m.qualityStatus)
                 .Equals();
         }
     }

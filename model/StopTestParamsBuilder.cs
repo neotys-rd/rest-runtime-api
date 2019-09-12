@@ -2,6 +2,8 @@
  * Copyright (c) 2016, Neotys
  * All rights reserved.
  */
+using NeotysRestCommonAPI.Data;
+
 namespace Neotys.RuntimeAPI.Model
 {
     /// <summary>
@@ -13,10 +15,12 @@ namespace Neotys.RuntimeAPI.Model
     public class StopTestParamsBuilder
     {
         public bool ForceStop { get; set; }
+        public QualityStatus? QualityStatus { get; set; }
 
         public StopTestParamsBuilder()
         {
             this.ForceStop = false;
+            this.QualityStatus = null;
         }
 
         public StopTestParams Build()

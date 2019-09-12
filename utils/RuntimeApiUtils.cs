@@ -24,6 +24,7 @@ namespace Neotys.RuntimeAPI.Utils
         // StoptTest
         public const string STOP_TEST = "StopTest";
         public const string FORCE_STOP = "ForceStop";
+        public const string QUALITY_STATUS = "QualityStatus";
 
         // AddVirtualUsers,
         public const string ADD_VIRTUAL_USERS = "AddVirtualUsers";
@@ -70,6 +71,10 @@ namespace Neotys.RuntimeAPI.Utils
         {
             IDictionary<string, object> properties = new Dictionary<string, object>();
             properties[FORCE_STOP] = stopTestParams.ForceStop;
+            if(stopTestParams.QualityStatus != null)
+            {
+                properties[QUALITY_STATUS] = stopTestParams.QualityStatus;
+            }
             return properties;
         }
 
